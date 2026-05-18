@@ -72,3 +72,59 @@ realestate-frontend
 ├── package.json
 ├── package-lock.json
 └── README.md
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/pranathi-rishika04/realestate-frontend.git
+```
+
+### 2️⃣ Navigate to Project Folder
+
+```bash
+cd realestate-frontend
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Start Frontend Server
+
+```bash
+npm start
+```
+
+---
+
+## 🌐 Deployment
+
+Frontend deployed using Vercel:
+
+https://realestate-frontend-cyan.vercel.app
+
+---
+
+## 🔗 Backend API
+
+Backend deployed using Render:
+
+https://realestate-backend-6p82.onrender.com
+
+---
+
+## 🗄️ Database Hosting
+
+Database hosted using Railway MySQL.
+
+---
+
+## 👩‍💻 Author
+
+Pranathi Rishika
