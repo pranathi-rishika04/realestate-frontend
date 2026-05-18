@@ -14,7 +14,7 @@ function App() {
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
-    fetch('/api/properties')
+    fetch('https://realestate-backend-6p82.onrender.com/api/properties')
       .then(response => response.json())
       .then(data => setProperties(data));
   }, []);
@@ -31,7 +31,7 @@ function App() {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this property?")) {
-      await fetch(`/api/properties/${id}`, { method: 'DELETE' });
+      await fetch(`https://realestate-backend-6p82.onrender.com/api/properties/${id}`, { method: 'DELETE' });
       setProperties(properties.filter(p => p.id !== id));
     }
   };
@@ -42,7 +42,7 @@ function App() {
     const formData = new FormData();
     formData.append("file", selectedFile);
 
-    const response = await fetch('/api/upload', {
+    const response = await fetch('https://realestate-backend-6p82.onrender.com/api/upload', {
       method: 'POST',
       body: formData
     });
@@ -69,7 +69,7 @@ function App() {
       imageUrl: imageUrl
     };
 
-    const response = await fetch('/api/properties', {
+    const response = await fetch('https://realestate-backend-6p82.onrender.com/api/properties', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(propertyToSend)
@@ -97,7 +97,7 @@ function App() {
       imageUrl: imageUrl
     };
 
-    const response = await fetch(`/api/properties/${editingId}`, {
+    const response = await fetch(`https://realestate-backend-6p82.onrender.com/api/properties/${editingId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(propertyToSend)
