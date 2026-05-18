@@ -1,0 +1,74 @@
+# 🏠 Real Estate Platform Frontend
+
+A modern full-stack real estate web application frontend built using React.js that allows users to browse, search, add, edit, and delete property listings with image uploads.
+
+---
+
+## 📌 Project Overview
+
+The Real Estate Platform helps users explore rental properties and manage listings through a clean and responsive user interface.
+
+Users can:
+
+- Browse available properties
+- Search properties by city
+- Filter properties by BHK and price
+- Add new properties
+- Upload property images
+- Edit existing property details
+- Delete property listings
+
+The frontend communicates with a Spring Boot backend API deployed on Render.
+
+---
+
+## ✨ Features
+
+### 🏘️ Property Management
+- View all properties
+- Add new property listings
+- Edit property details
+- Delete properties
+- Upload property images
+
+### 🔍 Search & Filters
+- Search by city
+- Filter by BHK
+- Filter by maximum price
+
+### 🖼️ User Interface
+- Responsive design
+- Property cards
+- Property details modal
+- Interactive forms
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- JavaScript
+- CSS3
+- Fetch API
+
+### Deployment
+- Vercel
+
+---
+
+## 📂 Project Structure
+
+```bash
+realestate-frontend
+│
+├── public
+│
+├── src
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+│
+├── package.json
+├── package-lock.json
+└── README.md
