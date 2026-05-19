@@ -125,6 +125,50 @@ Database hosted using Railway MySQL.
 
 ---
 
-## 👩‍💻 Author
+## 📸 Screenshots
 
-Pranathi Rishika
+### 🏠 Home Page
+
+Displays all available property listings in a clean card layout.
+
+![Home Page](screenshots/home-page.png)
+
+---
+
+### 📄 Property Details Modal
+
+Users can view complete property details in a popup modal.
+
+![Property Details](screenshots/property-details.png)
+
+---
+
+### ✏️ Edit Property
+
+Allows users to update property details and upload a new image.
+
+![Edit Property](screenshots/edit-property.png)
+
+---
+
+### 🔍 Search by City
+
+Users can search properties based on city names.
+
+![Search by City](screenshots/search-city.png)
+
+---
+
+### 🏘️ Filter by BHK
+
+Users can filter properties according to BHK type.
+
+![Filter by BHK](screenshots/filter-bhk.png)
+
+---
+
+### 💰 Filter by Maximum Price
+
+Users can filter properties based on maximum monthly rent.
+
+![Filter by Price](screenshots/filter-price.png)
