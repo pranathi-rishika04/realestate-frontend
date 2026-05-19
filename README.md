@@ -131,7 +131,7 @@ Database hosted using Railway MySQL.
 
 Displays all available property listings in a clean card layout.
 
-![Home Page](screenshots/home-page.png)
+![Home Page](screenshots/home-page.png.png)
 
 ---
 
@@ -139,7 +139,7 @@ Displays all available property listings in a clean card layout.
 
 Users can view complete property details in a popup modal.
 
-![Property Details](screenshots/property-details.png)
+![Property Details](screenshots/property-details.png.png)
 
 ---
 
@@ -147,7 +147,7 @@ Users can view complete property details in a popup modal.
 
 Allows users to update property details and upload a new image.
 
-![Edit Property](screenshots/edit-property.png)
+![Edit Property](screenshots/edit-property.png.png)
 
 ---
 
@@ -155,7 +155,7 @@ Allows users to update property details and upload a new image.
 
 Users can search properties based on city names.
 
-![Search by City](screenshots/search-city.png)
+![Search by City](screenshots/search-city.png.png)
 
 ---
 
@@ -163,7 +163,7 @@ Users can search properties based on city names.
 
 Users can filter properties according to BHK type.
 
-![Filter by BHK](screenshots/filter-bhk.png)
+![Filter by BHK](screenshots/filter-bhk.png.png)
 
 ---
 
@@ -171,4 +171,4 @@ Users can filter properties according to BHK type.
 
 Users can filter properties based on maximum monthly rent.
 
-![Filter by Price](screenshots/filter-price.png)
+![Filter by Price](screenshots/filter-price.png.png)
