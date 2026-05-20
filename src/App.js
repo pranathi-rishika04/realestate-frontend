@@ -129,266 +129,81 @@ function App() {
     setSelectedFile(null);
   };
 
- return (
-  <div className="app-container">
-
-    {/* HERO SECTION */}
-    <div className="hero-section">
-      <div className="hero-overlay">
-        <h1 className="hero-title">Find Your Dream Home</h1>
-        <p className="hero-subtitle">
-          Discover premium properties with modern living spaces.
-        </p>
-
-        <button
-          className="hero-btn"
-          onClick={() => {
-            if (showForm) resetForm();
-            else setShowForm(true);
-          }}
-        >
+  return (
+    <div className="app-container">
+      <div className="header-row">
+        <h1 className="header">🏠 Real Estate Platform</h1>
+        <button className="add-btn" onClick={() => {
+          if(showForm) resetForm();
+          else setShowForm(true);
+        }}>
           {showForm ? "Cancel" : "+ Add New Property"}
         </button>
       </div>
-    </div>
-
-    {/* SEARCH PANEL */}
-    <div className="search-wrapper">
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search by City"
-          className="search-input"
-          value={searchCity}
-          onChange={(e) => setSearchCity(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="BHK"
-          className="search-input"
-          value={searchBhk}
-          onChange={(e) => setSearchBhk(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="Max Price"
-          className="search-input"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-        />
-      </div>
-    </div>
-
-    {/* FORM SECTION */}
-    {showForm && (
-      <div className="form-container">
-        <h2>{editingId ? "Edit Property" : "Add a New Property"}</h2>
-
-        <form onSubmit={editingId ? handleUpdate : handleSubmit}>
-
-          <input
-            type="text"
-            placeholder="Property Title"
-            required
-            value={newProperty.title}
-            onChange={(e) =>
-              setNewProperty({ ...newProperty, title: e.target.value })
-            }
-          />
-
-          <textarea
-            placeholder="Property Description"
-            required
-            value={newProperty.description}
-            onChange={(e) =>
-              setNewProperty({
-                ...newProperty,
-                description: e.target.value,
-              })
-            }
-          />
-
-          <div className="form-row">
-
-            <input
-              type="number"
-              placeholder="Price"
-              required
-              value={newProperty.price}
-              onChange={(e) =>
-                setNewProperty({ ...newProperty, price: e.target.value })
-              }
-            />
-
-            <input
-              type="text"
-              placeholder="City"
-              required
-              value={newProperty.city}
-              onChange={(e) =>
-                setNewProperty({ ...newProperty, city: e.target.value })
-              }
-            />
-
-            <input
-              type="number"
-              placeholder="BHK"
-              required
-              value={newProperty.bhk}
-              onChange={(e) =>
-                setNewProperty({ ...newProperty, bhk: e.target.value })
-              }
-            />
-
-          </div>
-
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setSelectedFile(e.target.files[0])}
-          />
-
-          <button type="submit" className="submit-btn">
-            {editingId ? "Save Changes" : "Upload Property"}
-          </button>
-
-        </form>
-      </div>
-    )}
-
-    {/* PROPERTY SECTION */}
-
-    <div className="section-header">
-      <h2>Featured Properties</h2>
-      <p>Explore the latest premium listings</p>
-    </div>
-
-    <div className="property-grid">
-
-      {filteredProperties.length > 0 ? (
-
-        filteredProperties.map((prop) => (
-
-          <div key={prop.id} className="property-card">
-
-            <div className="image-wrapper">
-              <img
-                src={prop.imageUrl}
-                alt={prop.title}
-                className="card-image"
-              />
-
-              <span className="property-badge">
-                {prop.bhk} BHK
-              </span>
+      
+      {showForm && (
+        <div className="form-container">
+          <h2>{editingId ? "Edit Property" : "Add a New Property"}</h2>
+          <form onSubmit={editingId ? handleUpdate : handleSubmit}>
+            <input type="text" placeholder="Title (e.g., Beautiful Villa)" required value={newProperty.title} onChange={(e) => setNewProperty({...newProperty, title: e.target.value})} />
+            <textarea placeholder="Description" required value={newProperty.description} onChange={(e) => setNewProperty({...newProperty, description: e.target.value})} />
+            <div className="form-row">
+              <input type="number" placeholder="Price per month" required value={newProperty.price} onChange={(e) => setNewProperty({...newProperty, price: e.target.value})} />
+              <input type="text" placeholder="City" required value={newProperty.city} onChange={(e) => setNewProperty({...newProperty, city: e.target.value})} />
+              <input type="number" placeholder="BHK" required value={newProperty.bhk} onChange={(e) => setNewProperty({...newProperty, bhk: e.target.value})} />
             </div>
-
-            <div className="card-content">
-
-              <h2>{prop.title}</h2>
-
-              <p className="location">
-                📍 {prop.city}
-              </p>
-
-              <p className="price">
-                ₹{prop.price.toLocaleString()} / month
-              </p>
-
-              <p className="description">
-                {prop.description}
-              </p>
-
-              <div className="card-buttons">
-
-                <button
-                  className="btn-view"
-                  onClick={() => openModal(prop)}
-                >
-                  View
-                </button>
-
-                <button
-                  className="btn-edit"
-                  onClick={() => startEdit(prop)}
-                >
-                  Edit
-                </button>
-
-                <button
-                  className="btn-delete"
-                  onClick={() => handleDelete(prop.id)}
-                >
-                  Delete
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        ))
-
-      ) : (
-
-        <h2 className="no-results">
-          No properties found.
-        </h2>
-
+            <input type="file" accept="image/*" onChange={(e) => setSelectedFile(e.target.files[0])} />
+            <p style={{fontSize: '12px', color: 'gray'}}>{editingId ? "Leave empty to keep the current image." : "Please select an image."}</p>
+            <button type="submit" className="submit-btn">
+              {editingId ? "Save Changes" : "Upload & Save Property"}
+            </button>
+          </form>
+        </div>
       )}
 
-    </div>
-
-    {/* MODAL */}
-
-    {selectedProperty && (
-
-      <div className="modal-overlay" onClick={closeModal}>
-
-        <div
-          className="modal-content"
-          onClick={(e) => e.stopPropagation()}
-        >
-
-          <button className="close-btn" onClick={closeModal}>
-            ✕
-          </button>
-
-          <img
-            src={selectedProperty.imageUrl}
-            alt={selectedProperty.title}
-            className="modal-image"
-          />
-
-          <div className="modal-body">
-
-            <h2>{selectedProperty.title}</h2>
-
-            <p className="location">
-              📍 {selectedProperty.city} • {selectedProperty.bhk} BHK
-            </p>
-
-            <p className="price">
-              ₹{selectedProperty.price.toLocaleString()} / month
-            </p>
-
-            <p className="description">
-              {selectedProperty.description}
-            </p>
-
-          </div>
-
-        </div>
-
+      <div className="search-container">
+        <input type="text" placeholder="Search by City" className="search-input" value={searchCity} onChange={(e) => setSearchCity(e.target.value)} />
+        <input type="number" placeholder="BHK" className="search-input bhk-input" value={searchBhk} onChange={(e) => setSearchBhk(e.target.value)} />
+        <input type="number" placeholder="Max Price" className="search-input" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
       </div>
-
-    )}
-
-  </div>
-);
+      
+      <div className="property-grid">
+        {filteredProperties.length > 0 ? (
+          filteredProperties.map((prop) => (
+            <div key={prop.id} className="property-card">
+              <img src={prop.imageUrl} alt={prop.title} className="card-image" />
+              <div className="card-content">
+                <h2>{prop.title}</h2>
+                <p className="location">{prop.city} • {prop.bhk} BHK</p>
+                <p className="price">₹{prop.price.toLocaleString()} / month</p>
+                <p className="description">{prop.description}</p>
+                <div className="card-buttons">
+                  <button className="btn-view" onClick={() => openModal(prop)}>View Details</button>
+                  <button className="btn-edit" onClick={() => startEdit(prop)} style={{backgroundColor: "#ffc107", color: "black", border: "none", padding: "8px 12px", borderRadius: "4px", cursor: "pointer"}}>Edit</button>
+                  <button className="btn-delete" onClick={() => handleDelete(prop.id)}>Delete</button>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <h2 className="no-results">No properties found.</h2>
+        )}
+      </div>
+            
+      {selectedProperty && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={closeModal}>X</button>
+            <img src={selectedProperty.imageUrl} alt={selectedProperty.title} className="modal-image" />
+            <h2>{selectedProperty.title}</h2>
+            <p className="location">{selectedProperty.city} • {selectedProperty.bhk} BHK</p>
+            <p className="price">₹{selectedProperty.price.toLocaleString()} / month</p>
+            <p className="description">{selectedProperty.description}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default App;
